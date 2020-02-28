@@ -24,9 +24,11 @@ module.exports = {
         collapsable: true,
         children: [
           '/01-preparing/java',
-          '/01-preparing/forge',
           '/01-preparing/mdk',
           '/01-preparing/gradle-ide',
+          '/01-preparing/forge',
+          '/01-preparing/mcp',
+          '/01-preparing/fg',
         ]
       },
     ]
