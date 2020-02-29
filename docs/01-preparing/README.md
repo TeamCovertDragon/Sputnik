@@ -16,6 +16,6 @@
 
 ## 概念
 
--  [Forge](./forge)
 -  [MCP](./mcp)
+-  [Forge](./forge)
 -  [ForgeGradle](./fg)

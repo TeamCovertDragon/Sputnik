@@ -2,7 +2,7 @@
 
 Sputnik 是 [Harbinger][ref-1] 的续作，为新版 Minecraft 而生。
 
-```java{8-10}
+```java
 package com.example.examplemod;
 
 import net.minecraftforge.fml.common.Mod;

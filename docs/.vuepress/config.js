@@ -8,7 +8,6 @@ module.exports = {
   },
   themeConfig: {
     sidebar: [
-      '/',
       {
         title: '序',
         path:"/00-preface/",
@@ -26,8 +25,8 @@ module.exports = {
           '/01-preparing/java',
           '/01-preparing/mdk',
           '/01-preparing/gradle-ide',
-          '/01-preparing/forge',
           '/01-preparing/mcp',
+          '/01-preparing/forge',
           '/01-preparing/fg',
         ]
       },
