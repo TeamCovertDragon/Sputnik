@@ -5,7 +5,7 @@
 
 ## 下载
 
--  [JDK](./java)
+-  [Java](./java)
 -  [MDK](./mdk)
 -  [IDE](./gradle-ide)
 
