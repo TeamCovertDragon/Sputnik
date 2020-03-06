@@ -30,6 +30,15 @@ module.exports = {
           '/01-preparing/fg',
         ]
       },
+      {
+        title: '附录',
+        path:"/ex/",
+        collapsable: true,
+        children: [
+          '/ex/style',
+          '/ex/template',
+        ]
+      },
     ]
   }
 }
