@@ -49,8 +49,8 @@ module.exports = {
         path:"/registries/",
         collapsable: true,
         children: [
-          '/04/GameObject',
-          '/04/ForgeRegistryEntry',
+          '/registries/GameObject',
+          '/registries/ForgeRegistryEntry',
 
         ]
       },
