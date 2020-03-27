@@ -10,43 +10,43 @@ module.exports = {
     sidebar: [
       {
         title: '序',
-        path:"/00/",
+        path:"/preface/",
         collapsable: true,
         children: [
-          '/00/preface-0',
-          '/00/preface-1'
+          '/preface/preface-0',
+          '/preface/preface-1'
         ]
       },
       {
         title: '预备知识',
-        path:"/01/",
+        path:"/preparing/",
         collapsable: true,
         children: [
-          '/01/java',
-          '/01/mdk',
-          '/01/gradle-ide',
-          '/01/mcp',
-          '/01/forge',
-          '/01/fg',
+          '/preparing/java',
+          '/preparing/mdk',
+          '/preparing/gradle-ide',
+          '/preparing/mcp',
+          '/preparing/forge',
+          '/preparing/fg',
         ]
       },
       {
         title: '入口',
-        path:"/02/",
+        path:"/entry/",
         collapsable: true,
         children: [
         ]
       },
       {
         title: '事件',
-        path:"/03/",
+        path:"/event/",
         collapsable: true,
         children: [
         ]
       },
       {
         title: '注册物',
-        path:"/04/",
+        path:"/registries/",
         collapsable: true,
         children: [
           '/04/GameObject',
@@ -56,30 +56,23 @@ module.exports = {
       },
       {
         title: '简单模组',
-        path:"/05/",
+        path:"/exmaple-simple-mod/",
         collapsable: true,
         children: [
-          '/05/item',
-          '/05/block',
+          '/exmaple-simple-mod/item',
+          '/exmaple-simple-mod/block',
         ]
       },
       {
         title: '物品进阶',
-        path:"/06/",
+        path:"/advanced-item/",
         collapsable: true,
         children: [
         ]
       },
       {
         title: '方块进阶',
-        path:"/07/",
-        collapsable: true,
-        children: [
-        ]
-      },
-      {
-        title: '方块实体',
-        path:"/08/",
+        path:"/advanced-block/",
         collapsable: true,
         children: [
         ]
