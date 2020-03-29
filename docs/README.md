@@ -8,6 +8,8 @@ Sputnik 是 [Harbinger][ref-1] 的续作，为新版 Minecraft 而生。与 Harb
 
 rua
 
+rua
+
 
 ## 为什么是 1.15.2
 
