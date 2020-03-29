@@ -5,9 +5,9 @@
 
 ## 下载
 
--  [Java](./java)
--  [MDK](./mdk)
--  [IDE](./gradle-ide)
+-  [Java](./java.html)
+-  [MDK](./mdk.html)
+-  [IDE](./gradle-ide.html)
 
 ::: tip
 如果你网络不好，你可以在[这里下载](https://jihuayu-my.sharepoint.com/:f:/g/personal/admin_jihuayu_site/EmU2Ep-SW3NOiG4RNjajdDMBLHyvdd3ZHvRde-Eadi0E1w)上述的东西。  
@@ -16,6 +16,6 @@
 
 ## 概念
 
--  [MCP](./mcp)
--  [Forge](./forge)
--  [ForgeGradle](./fg)
+-  [MCP](./mcp.html)
+-  [Forge](./forge.html)
+-  [ForgeGradle](./fg.html)
