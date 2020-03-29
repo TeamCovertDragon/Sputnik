@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Sputnik - Next Gen. of Forge Tutor',
   description: "Spark in the darkness",
-  base: '${process.env.BASE_URL}',
+  base: process.env.BASE_URL ? process.env.BASE_URL : "/",
   dest: 'preview',
   markdown: {
     lineNumbers: true
