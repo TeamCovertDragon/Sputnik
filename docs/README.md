@@ -6,6 +6,8 @@
 
 Sputnik 是 [Harbinger][ref-1] 的续作，为新版 Minecraft 而生。与 Harbinger 不同，Sputnik不仅基于更新的版本，1.15.2 还更加考虑读者的感受。
 
+rua
+
 
 ## 为什么是 1.15.2
 
