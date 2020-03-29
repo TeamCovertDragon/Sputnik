@@ -78,6 +78,13 @@ module.exports = {
         ]
       },
       {
+        title: '服务端与客户端',
+        path: "/sides/",
+        collapsable: true,
+        children: [
+        ]
+      },
+      {
         title: '附录',
         path:"/ex/",
         collapsable: true,
