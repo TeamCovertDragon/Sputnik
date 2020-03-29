@@ -23,4 +23,3 @@ Sputnik 分为数个知识点，每个知识点分为两部分：
 如果你愿意开始学习，请拿出你的决心，一起和我写下这一行行代码，构建这绚丽的**我的世界**。
 
 [ref-1]: https://harbinger.covertdragon.team
-
