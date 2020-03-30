@@ -37,10 +37,10 @@
 要使用 SimpleNetworkWrapper 自定义网络 I/O ，我们需要做几件事：
 
 - 注册自己的 SimpleChannel
-- 注册自定义数据包
 - 实现自定义数据包的**序列化**、**反序列化**与**处理**
+- 注册自定义数据包
 
-### 上代码
+### 上 代 码
 
 #### 注册自己的 SimpleChannel
 ```java
@@ -138,6 +138,7 @@ public class MyPacket {
     public static MyPacket decode(PacketBuffer pb) {
         // 这个时候字节流已经从发送端传送到接收端了，所以这里的代码是在接收端运行的
         // 我们通过 PacketBuffer::readString 方法读取出刚刚写入的 String 数据，并返回反序列化的结果
+        // 如果在序列化阶段像 PacketBuffer 写入了多个数据，务必用与序列化阶段**相同的顺序**从 PacketBuffer 读取数据！！
         return new MyPacket(pb.readString());
     }
 
