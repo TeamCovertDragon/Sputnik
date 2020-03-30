@@ -83,6 +83,7 @@ module.exports = {
         path: "/sides/",
         collapsable: true,
         children: [
+          '/sides/network-io'
         ]
       },
       {
