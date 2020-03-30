@@ -46,8 +46,32 @@
 
 ## 如何在代码中区分服务端与客户端
 
-// TODO
+### 区分逻辑端
+
+区分逻辑端最常见的做法是通过 `World::isRemote` 方法判断：若返回值为 `true` 则当前是逻辑客户端，反之则是逻辑服务端。<!--TODO: 其他方法？-->
+
+### 区分物理端
+
+物理端可以通过 `Dist::isClient` 区分：若返回值为 `true` 则当前为物理客户端，反之则是物理服务端。此外，`Dist` 类中的 `CLIENT` 与 `DEDICATED_SERVER` 字段代表的都是物理端。<!--TODO: 其他方法？-->
+
+### @OnlyIn
+
+`@OnlyIn(DIST.xxx)` 注解用于标注某一类/字段/方法只应出现在哪一**物理**业务端中。例如：
+
+```java
+@OnlyIn(Dist.DEDICATED_SERVER)
+public class CapabilityManager {
+    // ...
+}
+```
+
+表明 `CapabilityManager` 只应在物理服务端中出现，如果常识在客户端加载这个类便会抛出异常。
+
+::: danger
+错用 `@OnlyIn` 注解会导致各种各样的游戏崩溃，务必谨慎使用。
+:::
 
 ## 注意事项
 
-// TODO
+- 在订阅事件之前，务必查清该是在哪一个业务端触发
+- 谨慎使用 `@OnlyIn` 注解
