@@ -24,7 +24,8 @@ module.exports = {
         children: [
           '/preparing/java',
           '/preparing/mdk',
-          '/preparing/gradle-ide',
+          '/preparing/ide',
+          '/preparing/gradle',
           '/preparing/mcp',
           '/preparing/forge',
           '/preparing/fg',
