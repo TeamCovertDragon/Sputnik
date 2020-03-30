@@ -18,10 +18,10 @@
 
 ### FML 生命周期事件
 
-FML 把 Mod 加载分成了若干个阶段，这些阶段共同组成了 Mod 加载的生命周期。每一个阶段由一个事件代表。你需要订阅合适的事件来完成你的 Mod 的加载。比如，和渲染有关的内容应在 `FMLClientSetupEvent` 发布时完成。这些事件在 MOD 事件总线上发布，可通过 `FMLJavaModLoadingContext.get().getModEventBus()` 获取。FML 以此让我们得以在正确的时机，在正确的逻辑端进行正确的行为。
+FML 把 Mod 加载分成了若干个阶段，这些阶段共同组成了 Mod 加载的生命周期。每一个阶段由一个事件代表。你需要订阅合适的事件来完成你的 Mod 的加载。比如，和渲染有关的内容应在 `FMLClientSetupEvent` 发布时完成。这些事件在 MOD 事件总线上发布，可通过 `FMLJavaModLoadingContext.get().getModEventBus()` 获取。FML 以此让我们得以在正确的时机，在正确的物理端进行正确的行为。
 
 ::: tip
-这里我们提到的逻辑端之类的概念，将会在[之后的章节](../sides/README.md)详细介绍。  简而言之，不论是单机游玩还是联机游玩，游戏中需要执行的各种任务都是按照职能被划分到客户端执行和服务端执行两个类别中的。分清什么任务应当在哪一端执行至关重要，也应该是一名合格的 Modder 的基本素养之一。值得注意的是，大部分在服务端进行的注册任务在客户端同样需要进行。
+这里我们提到的物理端之类的概念，将会在[之后的章节](../sides/README.md)详细介绍。简而言之，游戏中需要执行的各种任务被按照职能划分到了客户端执行和服务端执行两个类别中。分清什么任务应当在哪一端执行至关重要，也应该是一名合格的 Modder 的基本素养之一。值得注意的是，大部分在服务端进行的注册任务在客户端同样需要进行。
 :::
 
 FML 生命周期事件存在于 `net.minecraftforge.fml.event.lifecycle` 包中。除此之外，还有数个特殊的事件: 
@@ -49,21 +49,26 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod("example")
 public class ExampleMod {
-    //FML 通过 Class::newInstance 构造主类的实例，因此我们需要一个零参构造器
+    //有鉴于 Forge 构造 Mod 主类实例的机制，请务必保证主类存在一个零参构造器
     public ExampleMod() {
         //通过方法引用注册监听器
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);   
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
+        FMLJavaModLoadingContect.get().getModEventBus().addListener(this::serverSetup);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        //TODO: 一些需要同时在逻辑服务端和逻辑客户端完成的任务.
+        //TODO: 一些需要同时在物理服务端和客户端完成的任务.
     }
 
     private void clientSetup(final FMLClientSetupEvent event) {
-        //TODO: 一些只需要在逻辑客户端完成的任务.(例如：用 RenderingRegistry::registerEntityRenderingHandler 给实体注册渲染器，等)
+        //TODO: 一些只需要在物理客户端完成的任务.(例如：用 RenderingRegistry::registerEntityRenderingHandler 给实体注册渲染器，等)
+    }
+    
+    private void serverSetup(final FMLDedicatedServerSetupEvent event) {
+        //TODO: 一些需要在物理服务端完成的任务.
     }
 }
 ```
 
-以上代码中，我们在构造器内给总线注册了两个监听器以订阅事件。其中 `commonSetup` 会同时在逻辑服务端和逻辑客户端中被发布，而 `clientSetup` 只会在逻辑客户端被发布。对生命周期事件发布流程的详情请参见 `net.minecraftforge.fml.ModLoader`。
+以上代码中，我们在构造器内给总线注册了两个监听器以订阅事件。其中 `FMLCommonSetupEvent` 会同时在物理服务端和物理客户端中被发布，而 `FMLClientSetupEvent` 只会在物理客户端被发布，`FMLDedicatedServerSetupEvent` 同理。对生命周期事件发布流程的详情请参见 `net.minecraftforge.fml.ModLoader`。
