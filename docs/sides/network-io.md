@@ -14,7 +14,7 @@
 
 1. 构建数据包
 2. **序列化**————发送端将数据包中所有的内容全部转化成一段字节
-3. 传送————将字节从发送端传送至接收端
+3. 传送————将这段字节从发送端传送至接收端
 4. **反序列化**————接收端读取这段字节并重新构造出数据包
 5. **处理数据包**————接收端通过对应的处理器（Handler）处理数据包
 
@@ -31,7 +31,8 @@
 
 ## 使用 SimpleNetworkWrapper 进行自定义的网络 I/O
 
-Minecraft 已经实现好的网络 I/O 对于 Modder 来说当然是不够用的，当我们需要同步一些自定义的数据的时候，就需要自己注册新的数据包类型并指定相关的逻辑了。自定义网络 I/O 的方式有很多，这里笔者介绍最简单的一种解决方案：使用 SimpleNetworkWrapper 。
+虽然 Minecraft 已经实现了许多的网络 I/O 的逻辑，但是对于 Modder 来说这些当然是不够用的。  
+当我们需要同步一些自定义的数据的时候，就需要自己注册新的数据包类型并指定相关的逻辑了。自定义网络 I/O 的方式有很多，这里笔者介绍最简单的一种解决方案————使用 SimpleNetworkWrapper 。
 
 要使用 SimpleNetworkWrapper 自定义网络 I/O ，我们需要做几件事：
 
@@ -73,7 +74,7 @@ public class NetworkManager {
 ::: tip
 什么是**Supplier**？
 
-`Supplier` 可以理解为一个返回值为 `String` 的函数，上文的代码使用了 lambda 表达式简写该 Supplier ： `() -> PROTOCOL_VERSION` ，完整的形式实际上是：
+`Supplier<T>` 可以理解为一个返回值类型为 `T` 的函数，上文的代码使用了 lambda 表达式简写该 `Supplier<String>` ： `() -> PROTOCOL_VERSION` ，完整的形式实际上是：
 
 ```java
 new Supplier<String> {
@@ -94,7 +95,7 @@ String foo() {
 
 什么是**谓词**？
 
-谓词也是一个函数，它的返回值是一个 `boolean` ，并且含有一个参数。上文的 `PROTOCOL_VERSION::equals` 也可以写成：
+谓词也是一个函数，它的返回值是一个 `boolean` ，并且含有一个参数。上文的 `PROTOCOL_VERSION::equals` 是一个方法引用，它也可以被改写成：
 
 ```java
 new Predicate<String>() {
@@ -111,7 +112,7 @@ new Predicate<String>() {
 (s) -> PROTOCOL_VERSION.equals(s)
 ```
 
-关于 lambda 表达式的更多内容，读者可以自行学习。本文后面也会用到相似的写法，将不再赘述。
+关于 lambda 表达式和方法引用的更多内容，读者可以自行学习。本文后面也会用到相似的写法，将不再赘述。
 
 :::
 
