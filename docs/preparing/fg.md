@@ -8,9 +8,9 @@ ForgeGradle 是 Forge 开发团队推出的 [Gradle](gradle.md) 插件，主要�
 
   - 首先我们要下载 Minecraft 本体。
   - 然后我们要下载 Minecraft 的所有依赖项。
-  - 接着我们要反编译并[反混淆](mcp.md#人力反混淆)，这样我们才能读懂 Minecraft 底层。
+  - 接着我们要反编译并反混淆，这样我们才能读懂 Minecraft 底层。
   - 这个时候我们才能开始写代码。
-  - 到了发布 Mod 的时候，在编译好 Mod 的基础上我们还要[重混淆](mcp.md#重混淆（Re-obfuscation，reobf）)。
+  - 到了发布 Mod 的时候，在编译好 Mod 的基础上我们还要[重混淆](mcp.md#重混淆（re-obfuscation，reobf）)。
 
 显然，我们可以并且应该让 Gradle 帮我们搞定这些。ForgeGradle 应运而生。
 
