@@ -65,7 +65,7 @@ public class CapabilityManager {
 }
 ```
 
-表明 `CapabilityManager` 只应在物理服务端中出现，如果常识在客户端加载这个类便会抛出异常。
+表明 `CapabilityManager` 只应在物理服务端中出现，如果尝试在客户端加载这个类便会抛出异常。
 
 ::: danger
 错用 `@OnlyIn` 注解会导致各种各样的游戏崩溃，务必谨慎使用。
@@ -73,5 +73,6 @@ public class CapabilityManager {
 
 ## 注意事项
 
-- 在订阅事件之前，务必查清该是在哪一个业务端触发
+- 实现某个逻辑时，谨慎思考该逻辑应存在于服务端还是客户端
+- 在订阅事件之前，务必检查该是在哪一个业务端触发
 - 谨慎使用 `@OnlyIn` 注解
