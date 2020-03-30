@@ -138,7 +138,7 @@ public class MyPacket {
     public static MyPacket decode(PacketBuffer pb) {
         // 这个时候字节流已经从发送端传送到接收端了，所以这里的代码是在接收端运行的
         // 我们通过 PacketBuffer::readString 方法读取出刚刚写入的 String 数据，并返回反序列化的结果
-        // 如果在序列化阶段像 PacketBuffer 写入了多个数据，务必用与序列化阶段**相同的顺序**从 PacketBuffer 读取数据！！
+        // 如果在序列化阶段向 PacketBuffer 中写入了多个数据，务必用与序列化阶段**相同的顺序**从 PacketBuffer 读取数据！！
         return new MyPacket(pb.readString());
     }
 
