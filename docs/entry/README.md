@@ -66,7 +66,7 @@ public class ExampleMod {
     }
     
     private void serverSetup(final FMLDedicatedServerSetupEvent event) {
-        //TODO: 一些需要在物理服务端完成的任务.
+        //TODO: 一些只需要在物理服务端完成的任务.
     }
 }
 ```
