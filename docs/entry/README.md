@@ -1,9 +1,8 @@
 # 入口
 
-::: 前置知识
-- [预备知识](../01/README.md)
-- [事件](../03/README.md)
-:::
+> <strong>前置知识</strong>
+> - [预备知识](../preparing/README.md)
+> - [事件](../event/README.md)
 
 ## 上章
 
@@ -23,7 +22,7 @@
 
 在编写 Mod 的过程中，我们经常需要在 Mod 加载的的不同时期在不同的逻辑段进行不同的任务。FML 使用事件来帮助 Modder 达成这个目标。因此 FML 内存在一类事件，其中推送的事件并非游戏内发生的事件，而是 FML 在 Mod 加载过程中的的一系列过程，故我们称之为 FML 生命周期事件，而推送他们的事件总线被称为 MOD 总线。可以藉由 ```FMLJavaModLoadingContext.get().getModEventBus()``` 获取。FML 以此让我们得以在正确的时机，在正确的逻辑端进行正确的行为。例如我们不能在连方块注册都没有完成的情况下进行对应模型的注册，再比如我们不需要，不会，也不能在服务端注册渲染逻辑。
 
-::: tips
+::: tip
 这里我们提到的逻辑端之类的概念，将会在之后的章节详细介绍。<br/>简而言之，不论是单机游玩还是联机游玩，游戏中需要执行的各种任务都是按照职能被划分到客户端执行和服务端执行两个类别中的。分清什么任务应当在哪一端执行至关重要，也应该是一名合格的 Modder 的基本素养之一。值得注意的是，大部分在服务端进行的注册任务在客户端同样需要进行，但是反之不亦然。
 :::
 
@@ -62,7 +61,7 @@ public class ExampleMod {
     }
 
     private void clientSetup(final FMLClientSetupEvent event) {
-        //TODO: Some tasks to be done at only client side during mod initialization phase.(e.g. RenderingRegistry::registerEntityRenderingHandler etc.
+        //TODO: Some tasks to be done at only client side during mod initialization phase.(e.g. RenderingRegistry::registerEntityRenderingHandler etc.)
     }
 }
 ```
