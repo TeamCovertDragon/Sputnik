@@ -32,15 +32,15 @@ module.exports = {
         ]
       },
       {
-        title: '入口',
-        path:"/entry/",
+        title: '事件',
+        path:"/event/",
         collapsable: true,
         children: [
         ]
       },
       {
-        title: '事件',
-        path:"/event/",
+        title: '入口',
+        path:"/entry/",
         collapsable: true,
         children: [
         ]
