@@ -71,7 +71,7 @@ public class NetworkManager {
 }
 ```
 
-::: tip
+::: details 谓词与 `Supplier`
 什么是**Supplier**？
 
 `Supplier<T>` 可以理解为一个返回值类型为 `T` 的函数，上文的代码使用了 lambda 表达式简写该 `Supplier<String>` ： `() -> PROTOCOL_VERSION` ，完整的形式实际上是：
