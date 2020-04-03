@@ -32,6 +32,10 @@ module.exports = {
         ]
       },
       {
+        title: 'Mod 元数据',
+        path: "/metadata/"
+      },
+      {
         title: '事件',
         path:"/event/",
         collapsable: true,
@@ -80,11 +84,11 @@ module.exports = {
       },
       {
         title: '服务端与客户端',
-        path: "/sides/",
-        collapsable: true,
-        children: [
-          '/sides/network-io'
-        ]
+        path: "/sides/"
+      },
+      {
+        title: '网络 I/O',
+        path: "/network-io/"
       },
       {
         title: '附录',
