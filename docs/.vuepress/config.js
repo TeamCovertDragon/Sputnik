@@ -32,6 +32,10 @@ module.exports = {
         ]
       },
       {
+        title: 'Mod 元数据',
+        path: "/metadata/"
+      },
+      {
         title: '事件',
         path:"/event/",
         collapsable: true,
