@@ -1,9 +1,9 @@
 # 注册预制物
 
-::: tip
-假设你已经阅读过了[事件](../event/)
-:::
-
+> 前置知识：
+> 
+> - [事件](../event/)
+> - [RL]()
  ## 注册表
  
  对于很多读者来说，注册一个属于自己的方块/物品是一件十分开心的事情。其实注册预制物没有大家想象中那么困难。
@@ -24,6 +24,25 @@
 
 结合以上信息我们可以很清楚的知道如何注册。
 
-```java
+首先我们要有一个要注册的预制物。
 
+```java
+new Item(new Item.Properties().group(ItemGroup.MISC)).setRegistryName("examplemod:test")
 ```
+
+然后在注册事件中注册这个物品。
+
+```java
+@SubscribeEvent
+public static void onItemsRegistry(final RegistryEvent.Register<Item> itemRegistryEvent) {
+    LOGGER.info("HELLO from Register Item");
+    //注册一个新物品
+    itemRegistryEvent.getRegistry().register(new Item(new Item.Properties().group(ItemGroup.MISC)).setRegistryName("examplemod:test"));
+    //覆盖注册原版物品
+    itemRegistryEvent.getRegistry().register(new EggItem(new Item.Properties().group(ItemGroup.MISC)).setRegistryName("minecraft:apple"));
+}
+```
+
+然后，打开游戏，在创造物品栏（MISC）中就能看到这个物品了。
+
+接下去你可以阅读[简单的模组](./exmaple-simple-mod)来学习更多关于物品和方块的知识。
