@@ -3,9 +3,12 @@ module.exports = {
   description: "Spark in the darkness",
   base: process.env.BASE_URL ? process.env.BASE_URL : "/",
   dest: 'preview',
+  head: [
+    '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">'
+  ],
   markdown: {
     lineNumbers: true,
-    config: md => {
+    extendMarkdown: md => {
       md.use(require("markdown-it-katex"));
     }
   },
