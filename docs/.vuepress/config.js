@@ -4,7 +4,10 @@ module.exports = {
   base: process.env.BASE_URL ? process.env.BASE_URL : "/",
   dest: 'preview',
   markdown: {
-    lineNumbers: true
+    lineNumbers: true,
+    config: md => {
+      md.use(require("markdown-it-katex"));
+    }
   },
   themeConfig: {
     sidebar: [
