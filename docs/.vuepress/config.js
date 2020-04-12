@@ -53,11 +53,11 @@ module.exports = {
         ]
       },
       {
-        title: '注册物',
+        title: '预制物',
         path:"/registries/",
         collapsable: true,
         children: [
-          '/registries/GameObject',
+          '/registries/GameObjectRegister',
           '/registries/ForgeRegistryEntry',
 
         ]
