@@ -30,6 +30,8 @@
   - 所有 `ColorHandlerEvent`，包括：
     - `ColorHandlerEvent.Block`
     - `ColorHandlerEvent.Item`
+  - `ModelBakeEvent`
+  - `ModelRegistryEvent`
   - `ParticleFactoryRegisterEvent`
   - `TextureStitchEvent`（包括 `Pre` 和 `Post`）
 
