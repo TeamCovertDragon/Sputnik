@@ -46,6 +46,7 @@ module.exports = {
         path:"/event/",
         collapsable: true,
         children: [
+          '/event/why-my-events-do-not-work'
         ]
       },
       {
