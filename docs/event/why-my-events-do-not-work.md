@@ -2,7 +2,7 @@
 
 ## 先检查你注册的方式
 
-|你是这么注册的……|那你应该这样订阅……|方法的访问级别……
+|如果你是这么注册的……|那你应该这样订阅……|方法的访问级别……|
 |:----|:----|:----|
 |`@Mod.EventBusSubscriber(modid = "my_mod")`|`@SubscribeEvent public static void on(Event event)`|必须为 `public`|
 |`MinecraftForge.EVENT_BUS.register(new MyEventListener())`|`@SubscribeEvent public void on(Event event)`|必须为 `public`|
@@ -35,18 +35,22 @@
   - `ParticleFactoryRegisterEvent`
   - `TextureStitchEvent`（包括 `Pre` 和 `Post`）
 
+### 你有两个选择
 
 一般来说，需要走 Mod 总线的事件都应当在 Mod 主类的构造器里就订阅完成：
 
 ```java
-IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-
-bus.register(...);
-bus.addListener(...);
-bus.addGenericListener(...);
+public class MyMod {
+    public MyMod() {
+        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+        bus.register(...);
+        bus.addListener(...);
+        bus.addGenericListener(...);
+    }
+}
 ```
 
-或者，如果你用 `@Mod.EventBusSubscriber`：
+或者，如果你用 `@Mod.EventBusSubscriber`，那你的代码应该这样写：
 
 ```java
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, modid = "my_mod")
