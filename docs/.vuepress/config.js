@@ -42,18 +42,18 @@ module.exports = {
         path: "/metadata/"
       },
       {
+        title: '入口',
+        path:"/entry/",
+        collapsable: true,
+        children: [
+        ]
+      },
+      {
         title: '事件',
         path:"/event/",
         collapsable: true,
         children: [
           '/event/why-my-events-do-not-work'
-        ]
-      },
-      {
-        title: '入口',
-        path:"/entry/",
-        collapsable: true,
-        children: [
         ]
       },
       {
@@ -67,12 +67,12 @@ module.exports = {
         ]
       },
       {
-        title: '简单模组',
-        path:"/exmaple-simple-mod/",
+        title: '物品与方块概论',
+        path:"/first-step/",
         collapsable: true,
         children: [
-          '/exmaple-simple-mod/item',
-          '/exmaple-simple-mod/block',
+          '/first-step/item',
+          '/first-step/block',
         ]
       },
       {
