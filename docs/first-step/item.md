@@ -37,7 +37,7 @@ public final class MyItems {
 
 然后在 Mod 主类里调用就行了：
 
-```java
+```java{8}
 @Mod("my_mod")
 public final class MyMod {
     public MyMod() {
@@ -45,7 +45,7 @@ public final class MyMod {
         bus.addListener(this::commonSetup);
         bus.addListener(this::clientSetup);
         bus.addListener(this::serverSetup);
-        new MyItems(bus); // <-- 注意这一行
+        new MyItems(bus);
     }
 }
 ```

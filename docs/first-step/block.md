@@ -37,7 +37,7 @@ public final class MyBlocks {
 
 然后在 Mod 主类里调用：
 
-```java
+```java{8-9}
 @Mod("my_mod")
 public final class MyMod {
     public MyMod() {
@@ -46,7 +46,7 @@ public final class MyMod {
         bus.addListener(this::clientSetup);
         bus.addListener(this::serverSetup);
         new MyItems(bus);
-        new MyBlocks(bus); // <-- 这里
+        new MyBlocks(bus);
     }
 }
 ```
