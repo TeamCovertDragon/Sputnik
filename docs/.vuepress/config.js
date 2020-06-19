@@ -3,8 +3,14 @@ module.exports = {
   description: "Spark in the darkness",
   base: process.env.BASE_URL ? process.env.BASE_URL : "/",
   dest: 'preview',
+  head: [
+    '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">'
+  ],
   markdown: {
-    lineNumbers: true
+    lineNumbers: true,
+    extendMarkdown: md => {
+      md.use(require("markdown-it-katex"));
+    }
   },
   themeConfig: {
     sidebar: [
@@ -36,17 +42,18 @@ module.exports = {
         path: "/metadata/"
       },
       {
-        title: '事件',
-        path:"/event/",
+        title: '入口',
+        path:"/entry/",
         collapsable: true,
         children: [
         ]
       },
       {
-        title: '入口',
-        path:"/entry/",
+        title: '事件',
+        path:"/event/",
         collapsable: true,
         children: [
+          '/event/why-my-events-do-not-work'
         ]
       },
       {
@@ -60,12 +67,12 @@ module.exports = {
         ]
       },
       {
-        title: '简单模组',
-        path:"/exmaple-simple-mod/",
+        title: '物品与方块概论',
+        path:"/first-step/",
         collapsable: true,
         children: [
-          '/exmaple-simple-mod/item',
-          '/exmaple-simple-mod/block',
+          '/first-step/item',
+          '/first-step/block',
         ]
       },
       {
