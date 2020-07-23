@@ -54,7 +54,7 @@ public class ExampleMod {
         //通过方法引用注册监听器
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
-        FMLJavaModLoadingContect.get().getModEventBus().addListener(this::serverSetup);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::serverSetup);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
