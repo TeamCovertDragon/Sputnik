@@ -1,0 +1,31 @@
+name: build-preview
+on: 
+  pull-request:
+    types: synchronize
+    branch:
+      - bleeding
+    paths:
+      - 'docs/**'
+      - 'package.json'
+jobs:
+  preview:
+    name: 'Build Preview'
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+      - name: Build Pages
+        env:
+          BASE_URL: ${{ format('/{0}/', github.event.number) }}
+        run: yarn install && yarn docs:build
+      - name: Upload Pages
+        env:
+          PR_NUMBER: ${{ github.event.number }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET }}
+        run: aws --endpoint-url='https://us-east-1.linodeobjects.com' s3 sync ./preview/ s3://preview.sputnik.covertdragon.team/$PR_NUMBER/ --acl public-read --delete --only-show-errors
+      - name: Ensure Website Config
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET }}
+        run: aws --endpoint-url='https://us-east-1.linodeobjects.com' s3 website s3://preview.sputnik.covertdragon.team/ --index-document index.html --error-document 404.html
