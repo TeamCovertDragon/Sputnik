@@ -46,6 +46,7 @@ module.exports = {
         path:"/entry/",
         collapsable: true,
         children: [
+          '/entry/metadata'
         ]
       },
       {
