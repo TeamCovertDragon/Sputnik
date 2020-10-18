@@ -1,6 +1,6 @@
 name: build-preview
 on: 
-  pull-request:
+  pull_request:
     types: synchronize
     branch:
       - bleeding
