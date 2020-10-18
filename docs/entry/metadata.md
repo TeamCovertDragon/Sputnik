@@ -28,7 +28,7 @@ license="All Rights Reserved"
 |`modLoader`      |字符串   |`"javafml"`。我们会在以后再讨论这个。这一行必须有。|
 |`loaderVersion`  |字符串   |一个数学上的区间。我们要定义的是“加载器的版本范围”，这个版本是 Forge 版本号的主版本号。比如 `31.1.37` 的 Forge，对应的“加载器的版本”是 `31`。`[31,)` 的意思自然是“大于等于 31”。这一行必须有。|
 |`issueTrackerURL`|字符串   |你的 Mod 出了问题去哪里找你丢黑锅。一般来说是一个网址。这一行可以删掉，尤其是你想鸽了的时候。|
-|`license`        |字符串   |你的 Mod 的许可证（license）。非常有用，因为它能直截了当地告诉用户他们可以拿你的 Mod 干什么，不能干什么。强烈建议使用 [SPDX Identifier][ref-1] 以方便机器处理。|
+|`license`        |字符串   |你的 Mod 的许可证（license）。非常有用，因为它能直截了当地告诉用户他们可以拿你的 Mod 干什么，不能干什么。强烈建议使用 [SPDX Identifier][ref-1] 以方便机器处理。如果你不确定这是什么，强烈建议填入 `All Rights Reserved`（即「版权所有」）。|
 
 [ref-1]: https://spdx.org/licenses/
 
